@@ -2,21 +2,20 @@
   "version": 2,
   "builds": [
     { "src": "app.js", "use": "@vercel/node" },
-    { "src": "public/index.html", "use": "@vercel/static" }
+    { "src": "public/**", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/rechercher", "dest": "app.js" },
-    { "src": "/style.css", "dest": "/public/style.css" },
-    { "src": "/(.*)", "dest": "public/index.html" }
+    { "src": "/(.*)", "dest": "/public/$1" }
   ],
   "headers": [
     {
-      "source": "/style.css",
+      "source": "/main.css",
       "headers": [
         { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" },
         { "key": "Pragma", "value": "no-cache" },
         { "key": "Expires", "value": "0" }
       ]
-  }
+    }
   ]
 }
