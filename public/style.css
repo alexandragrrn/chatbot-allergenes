@@ -1,3 +1,8 @@
+body {
+    background-color: red !important; /* TEST pour voir si ça s'applique */
+}
+
+
 /* Styles généraux */
 body {
     font-family: Arial, sans-serif;
