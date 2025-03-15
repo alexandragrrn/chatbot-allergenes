@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Allergènes</title>
-    <link rel="stylesheet" href="/style.css?v=2">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Bienvenue au Restaurant Le Pic Vert</h1>
-        <p>Indiquez vos allergies pour découvrir les plats adaptés :</p>
-        <input type="text" id="allergyInput" placeholder="Ex : gluten, lait, œufs">
-        <button onclick="searchPlats()">Rechercher</button>
-        <div id="results"></div>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Bienvenue au Restaurant Le Pic Vert</h1>
+            <p>Indiquez vos allergies pour découvrir les plats adaptés :</p>
+            <input type="text" id="allergyInput" placeholder="Ex : gluten, lait, œufs">
+            <button onclick="searchPlats()">Rechercher</button>
+            <div id="results"></div>
+        </div>
     </div>
 
     <script>
@@ -30,7 +31,7 @@
                 let output = '<h2>Résultats :</h2>';
                 data.forEach(plat => {
                     let color = plat.status === 'compatible' ? 'green' : plat.status === 'modifiable' ? 'orange' : 'red';
-                    output += `<div class="plat" style="border-left: 5px solid ${color};">
+                    output += `<div class="plat ${plat.status}" style="border-left: 5px solid ${color};">
                         <h3>${plat.nom}</h3>
                         <p>${plat.description}</p>
                         <p><strong>Allergènes :</strong> ${plat.allergenes.join(', ')}</p>
@@ -44,4 +45,3 @@
     </script>
 </body>
 </html>
-
