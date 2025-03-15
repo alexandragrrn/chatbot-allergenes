@@ -10,6 +10,14 @@ body {
     height: 100vh;
 }
 
+/* Wrapper pour centrer la page */
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Conteneur principal */
 .container {
     width: 90%;
