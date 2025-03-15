@@ -10,18 +10,22 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static('public'));
 
-// Charger les données des plats depuis un fichier JSON
+// Charger les plats depuis JSON
 const dataFilePath = path.join(__dirname, 'data', 'plats.json');
+let plats = [];
 
-let plats;
 try {
     plats = JSON.parse(fs.readFileSync(dataFilePath, 'utf-8'));
 } catch (error) {
     console.error("Erreur de chargement du fichier plats.json:", error);
-    plats = [];
 }
 
-// Route API pour rechercher des plats en fonction des allergies
+// Route principale pour afficher `index.html`
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// API pour rechercher les plats
 app.post('/rechercher', (req, res) => {
     const { allergies } = req.body;
     if (!allergies || allergies.length === 0) {
@@ -31,7 +35,7 @@ app.post('/rechercher', (req, res) => {
     const results = plats.map(plat => {
         let status = 'compatible';
         let modifiableIngredients = [];
-        
+
         allergies.forEach(allergie => {
             if (plat.allergenes.includes(allergie)) {
                 if (plat.modifiable.includes(allergie)) {
@@ -47,10 +51,6 @@ app.post('/rechercher', (req, res) => {
     });
 
     res.json(results);
-});
-
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(PORT, () => {
