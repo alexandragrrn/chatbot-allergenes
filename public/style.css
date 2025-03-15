@@ -20,6 +20,7 @@ body {
 /* Titre */
 h1 {
     color: #2c3e50;
+    font-size: 24px;
 }
 
 /* Champ de recherche */
@@ -49,14 +50,25 @@ button:hover {
 }
 
 /* Résultats */
+#results {
+    margin-top: 20px;
+    text-align: left;
+}
+
+/* Style des cartes des plats */
 .plat {
     background: #ffffff;
     margin: 15px 0;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
     border-left: 6px solid #ddd;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plat:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Code couleur des plats */
@@ -75,9 +87,11 @@ button:hover {
     background-color: #f8d7da;
 }
 
+/* Mise en forme du texte */
 .plat h3 {
     margin: 0;
     color: #333;
+    font-size: 18px;
 }
 
 .plat p {
@@ -85,4 +99,3 @@ button:hover {
     font-size: 14px;
     color: #666;
 }
-
