@@ -1,14 +1,48 @@
-[
-    {
-        "nom": "Salade Jurassienne",
-        "description": "Salade avec Comté, noix et jambon fumé.",
-        "allergenes": ["lait", "fruits à coque"],
-        "modifiable": ["lait"]
-    },
-    {
-        "nom": "Poulet au Vin Jaune",
-        "description": "Poulet cuit dans une sauce au Vin Jaune et crème.",
-        "allergenes": ["lait", "sulfites"],
-        "modifiable": []
-    }
-]
+{
+  "ingredients": [
+    {"id": 1, "nom": "Farine de blé", "allergenes": "gluten"},
+    {"id": 2, "nom": "Comté", "allergenes": "lait"},
+    {"id": 3, "nom": "Noix", "allergenes": "fruits à coque"},
+    {"id": 4, "nom": "Poulet", "allergenes": ""},
+    {"id": 5, "nom": "Vin jaune", "allergenes": "sulfite"},
+    {"id": 6, "nom": "Crème", "allergenes": "lait"},
+    {"id": 7, "nom": "Pomme de terre", "allergenes": ""},
+    {"id": 8, "nom": "Chocolat noir", "allergenes": "peut contenir lait"},
+    {"id": 9, "nom": "Pâte à tartiner", "allergenes": "lait, fruits à coque"},
+    {"id": 10, "nom": "Charcuterie", "allergenes": "peut contenir sulfite"},
+    {"id": 11, "nom": "Salade", "allergenes": ""},
+    {"id": 12, "nom": "Crêpe", "allergenes": "gluten"}
+  ],
+  "plats": [
+    {"id": 1, "categorie": "Planche à partager", "nom": "Jura4ever", "description": "Notre best seller !", "aDesAccompagnements": "Non"},
+    {"id": 2, "categorie": "Entrée", "nom": "Salade jurassienne", "description": "Une salade typique du Jura", "aDesAccompagnements": "Non"},
+    {"id": 3, "categorie": "Viande", "nom": "Poulet au vin jaune", "description": "Spécialité à base de vin jaune", "aDesAccompagnements": "Oui"},
+    {"id": 4, "categorie": "Dessert", "nom": "Crêpe pâte à tartiner", "description": "Délicieuse crêpe chocolatée", "aDesAccompagnements": "Non"}
+  ],
+  "compositions": [
+    {"idPlat": 1, "idIngredient": 10, "modifiable": "Non"},
+    {"idPlat": 1, "idIngredient": 11, "modifiable": "Oui"},
+    {"idPlat": 1, "idIngredient": 3, "modifiable": "Oui"},
+    {"idPlat": 1, "idIngredient": 2, "modifiable": "Non"},
+    {"idPlat": 2, "idIngredient": 11, "modifiable": "Non"},
+    {"idPlat": 2, "idIngredient": 3, "modifiable": "Oui"},
+    {"idPlat": 2, "idIngredient": 2, "modifiable": "Non"},
+    {"idPlat": 3, "idIngredient": 4, "modifiable": "Non"},
+    {"idPlat": 3, "idIngredient": 5, "modifiable": "Non"},
+    {"idPlat": 3, "idIngredient": 6, "modifiable": "Non"},
+    {"idPlat": 4, "idIngredient": 12, "modifiable": "Non"},
+    {"idPlat": 4, "idIngredient": 9, "modifiable": "Non"}
+  ],
+  "accompagnements": [
+    {"id": 1, "nom": "Frites", "allergenes": "gluten"},
+    {"id": 2, "nom": "Légumes", "allergenes": ""},
+    {"id": 3, "nom": "Purée", "allergenes": "lait"},
+    {"id": 4, "nom": "Riz", "allergenes": ""}
+  ],
+  "optionsAccompagnement": [
+    {"idPlat": 3, "idAccompagnement": 1},
+    {"idPlat": 3, "idAccompagnement": 2},
+    {"idPlat": 3, "idAccompagnement": 3},
+    {"idPlat": 3, "idAccompagnement": 4}
+  ]
+}
